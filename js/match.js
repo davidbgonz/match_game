@@ -18,7 +18,7 @@ var clicks = 0, matchCount, moveCount;
 var cardOne, cardTwo;
 var gameWon = 6;
 const playerBase = { name: null, score: null, date: null };
-var scoreboard = [ playerBase, playerBase, playerBase, playerBase ];
+var scoreboard = [ playerBase, playerBase, playerBase, playerBase, playerBase, playerBase ];
 var playerSave = null, saveState = null;
 
 // Set green circle shape
@@ -410,7 +410,7 @@ function gameOver(){
     localStorage.setItem('scoreboard', JSON.stringify(scoreboard));
   } else {
     scoreboard = JSON.parse(localStorage.getItem('scoreboard'));
-    scoreboard[3] = player;
+    scoreboard[5] = player;
     scoreboard.sort(function (playerA, playerB) {
       return (playerA.score === null) - (playerB.score === null) || playerA.score - playerB.score;
     });
@@ -429,10 +429,17 @@ function updateScoreboard() {
   var firstDate = document.getElementById('dateOne');
   var second = document.getElementById('2nd');
   var secondMove = document.getElementById('score2nd');
+  var secondDate = document.getElementById('dateTwo');
   var third = document.getElementById('3rd');
   var thirdMove = document.getElementById('score3rd');
-  var secondDate = document.getElementById('dateTwo');
   var thirdDate = document.getElementById('dateThree');
+  var fourth = document.getElementById('4th');
+  var fourthMove = document.getElementById('score4th');
+  var fourthDate = document.getElementById('dateFour');
+  var fifth = document.getElementById('5th');
+  var fifthMove = document.getElementById('score5th');
+  var fifthDate = document.getElementById('dateFive');
+
   
   if (JSON.parse(localStorage.getItem('scoreboard'))[0].name != null) {
     first.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[0].name;
@@ -450,6 +457,18 @@ function updateScoreboard() {
     third.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[2].name;
     thirdMove.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[2].score;
     thirdDate.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[2].date;
+  }
+
+  if (JSON.parse(localStorage.getItem('scoreboard'))[3].name != null) {
+    fourth.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[3].name;
+    fourthMove.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[3].score;
+    fourthDate.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[3].date;
+  }
+
+  if (JSON.parse(localStorage.getItem('scoreboard'))[4].name != null) {
+    fifth.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[4].name;
+    fifthMove.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[4].score;
+    fifthDate.innerHTML = JSON.parse(localStorage.getItem('scoreboard'))[4].date;
   }
 }
 
