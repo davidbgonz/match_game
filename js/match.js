@@ -383,14 +383,12 @@ function cardMatch(firstCard, secondCard) {
 function getMatchCount() {
   var matches = document.getElementById('matchCounter');
 		matches.innerHTML = 'Matches: ' + matchCount;
-    //return matchCount;
 };
 
 // Function to display and return number of moves
 function getMoveCount(){
   var moves = document.getElementById('moveCounter');
 		moves.innerHTML = 'Moves: ' + moveCount;
-    //return moveCount;
 };
 
 //Function to check if game is over and display results
@@ -402,7 +400,7 @@ function gameOver(){
 	moves.innerHTML = '' ;
   //Display winning score
   var win = document.getElementById('winGame');
-	win.innerHTML = 'Congrats! you won the game with ' + moveCount + ' moves!<br />Click the Start New Game button to play again.';
+	win.innerHTML = 'Congrats! You won the game with ' + moveCount + ' moves!<br />Click the Start New Game button to play again.';
   //save winning to local storage
   var myDate = new Date();
   const player = { name: name, score: moveCount, date: myDate };
@@ -455,25 +453,23 @@ function updateScoreboard() {
   }
 }
 
-// this function started a new game 
+// Function to start new game
 function newGame(){
-   	var newName = prompt('Enter a new player name or cancel to keep playing ');
-    while  (newName == ''){
-  	var newName = prompt('Enter a new player name or cancel to keep playing ');
-  }
-  	if (newName != null){
+  var newName = prompt('Enter a new player name or cancel to keep playing.');
+  
+  if (newName != null){
     name = newName;    
   };
-	//var first = document.getElementById('1st');
 
-		alert('Welcome! ' + name + ', Click ok to start the game');
-		var greeting = document.getElementById('greet');
-		greeting.innerHTML = 'Player: ' + name;    
+	alert('Welcome ' + name + '! Click ok to start the game.');
+	var greeting = document.getElementById('greet');
+	greeting.innerHTML = 'Player: ' + name;    
     
-    // Reset player save
-    localStorage.setItem('save', null);
+  // Reset player save
+  localStorage.setItem('save', null);
 
-    initialize();
+  // Initialize new game board
+  initialize();
 };
   
 // Function to save current game state
