@@ -1,3 +1,4 @@
+// Variables for match game
 var width = 800, height = 600, cardWidth = 200, cardHeight = 200, pi = Math.PI;
 var canvas, context;
 var cover, circleGreen, circleOrange, circlePurple, 
